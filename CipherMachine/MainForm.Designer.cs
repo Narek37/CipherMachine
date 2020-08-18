@@ -42,6 +42,8 @@
             this.CopyButton = new System.Windows.Forms.Button();
             this.CopyedLabel = new System.Windows.Forms.Label();
             this.SelectComboBox = new System.Windows.Forms.ComboBox();
+            this.LabelKey = new System.Windows.Forms.Label();
+            this.textBoxKey = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,9 +139,11 @@
             // SelectComboBox
             // 
             this.SelectComboBox.AllowDrop = true;
-            this.SelectComboBox.FormattingEnabled = true;
             this.SelectComboBox.Items.AddRange(new object[] {
+            "Caesar Cipher",
+            "Caesar Cipher Decoder",
             "MD5",
+            "Reverse Alphabet Cipher",
             "SHA1"});
             this.SelectComboBox.Location = new System.Drawing.Point(12, 44);
             this.SelectComboBox.Name = "SelectComboBox";
@@ -148,11 +152,32 @@
             this.SelectComboBox.TabIndex = 5;
             this.SelectComboBox.SelectedIndexChanged += new System.EventHandler(this.SelectComboBox_SelectedIndexChanged);
             // 
+            // LabelKey
+            // 
+            this.LabelKey.AutoSize = true;
+            this.LabelKey.Location = new System.Drawing.Point(485, 44);
+            this.LabelKey.Name = "LabelKey";
+            this.LabelKey.Size = new System.Drawing.Size(25, 13);
+            this.LabelKey.TabIndex = 6;
+            this.LabelKey.Text = "Key";
+            this.LabelKey.Visible = false;
+            // 
+            // textBoxKey
+            // 
+            this.textBoxKey.Location = new System.Drawing.Point(488, 60);
+            this.textBoxKey.Name = "textBoxKey";
+            this.textBoxKey.Size = new System.Drawing.Size(41, 20);
+            this.textBoxKey.TabIndex = 7;
+            this.textBoxKey.Visible = false;
+            this.textBoxKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxKey_KeyPress);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 236);
+            this.Controls.Add(this.textBoxKey);
+            this.Controls.Add(this.LabelKey);
             this.Controls.Add(this.SelectComboBox);
             this.Controls.Add(this.CopyedLabel);
             this.Controls.Add(this.CopyButton);
@@ -188,6 +213,8 @@
         private System.Windows.Forms.Button CopyButton;
         private System.Windows.Forms.Label CopyedLabel;
         private System.Windows.Forms.ComboBox SelectComboBox;
+        private System.Windows.Forms.Label LabelKey;
+        private System.Windows.Forms.TextBox textBoxKey;
     }
 }
 
