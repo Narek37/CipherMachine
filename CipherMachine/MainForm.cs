@@ -131,23 +131,26 @@ namespace CipherMachine
 
         private void textBoxKey_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //max length = 2///////////////
             char key = e.KeyChar;
-            if (textBoxKey.Text.Length == 0)
-            {
-                if (!(key == '1' || key == '2'))
-                {
-                    e.Handled = true;
-                }
-            }
+
             if (!(char.IsNumber(key) || e.KeyChar == (char)Keys.Back))
             {
                 e.Handled = true;
+            }
+            if (textBoxKey.Text.Length != 0)
+            {
+                if (!(textBoxKey.Text.Equals("1") || textBoxKey.Text.Equals("2") || e.KeyChar == (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
             }
         }
 
         private void textBoxKey_TextChanged(object sender, EventArgs e)
         {
             CipherReturn();
+            this.ActiveControl = textBoxKey;
         }
     }
 
