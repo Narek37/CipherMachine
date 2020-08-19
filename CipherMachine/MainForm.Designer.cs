@@ -169,6 +169,7 @@
             this.textBoxKey.Size = new System.Drawing.Size(41, 20);
             this.textBoxKey.TabIndex = 7;
             this.textBoxKey.Visible = false;
+            this.textBoxKey.TextChanged += new System.EventHandler(this.textBoxKey_TextChanged);
             this.textBoxKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxKey_KeyPress);
             // 
             // MainForm

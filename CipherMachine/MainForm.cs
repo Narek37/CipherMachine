@@ -21,7 +21,7 @@ namespace CipherMachine
             this.ActiveControl = StartTextBox;
             CopyButton.Enabled = false;
             SelectComboBox.SelectedIndex = 0;
-
+            textBoxKey.MaxLength = 2;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -68,24 +68,6 @@ namespace CipherMachine
             {
                 CipherTextBox.Text = "";
             }
-
-            //////switch (SelectComboBox.SelectedIndex)
-            //////{
-            //////    case 0: //md5
-            //////        CipherTextBox.Text = cipher.MD5(StartTextBox.Text);
-            //////        break;
-            //////    case 1: //sha1
-            //////        CipherTextBox.Text = cipher.SHA1(StartTextBox.Text);
-            //////        break;
-            //////    case 2: //caesar cipher
-            //////        break;
-            //////    case 3: //caesar decipher
-            //////        break;
-            //////    case 4: //reverse alphabet
-            //////        CipherTextBox.Text = cipher.ReverseAlphabet(StartTextBox.Text);
-            //////        break;
-
-            //////}
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,10 +132,22 @@ namespace CipherMachine
         private void textBoxKey_KeyPress(object sender, KeyPressEventArgs e)
         {
             char key = e.KeyChar;
+            if (textBoxKey.Text.Length == 0)
+            {
+                if (!(key == '1' || key == '2'))
+                {
+                    e.Handled = true;
+                }
+            }
             if (!(char.IsNumber(key) || e.KeyChar == (char)Keys.Back))
             {
                 e.Handled = true;
             }
+        }
+
+        private void textBoxKey_TextChanged(object sender, EventArgs e)
+        {
+            CipherReturn();
         }
     }
 
